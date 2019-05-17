@@ -42,7 +42,6 @@
 
   合并策略选项分别接收在父实例和子实例上定义的该选项的值作为第一个和第二个参数，Vue 实例上下文被作为第三个参数传入。
 
-- **参考** [自定义选项的混入策略](../guide/mixins.html#自定义选项混入策略)
 
 ### devtools
 
@@ -212,8 +211,6 @@
   <p>Walter White aka Heisenberg</p>
   ```
 
-- **参考**：[组件](../guide/components.html)
-
 ### Vue.nextTick( [callback, context] )
 
 - **参数**：
@@ -241,7 +238,6 @@
 
   > 2.1.0 起新增：如果没有提供回调且在支持 Promise 的环境中，则返回一个 Promise。请注意 Vue 不自带 Promise 的 polyfill，所以如果你的目标浏览器不原生支持 Promise (IE：你们都看我干嘛)，你得自己提供 polyfill。
 
-- **参考**：[异步更新队列](../guide/reactivity.html#异步更新队列)
 
 ### Vue.set( target, propertyName/index, value )
 
@@ -274,7 +270,6 @@
 
   <p class="tip">目标对象不能是一个 Vue 实例或 Vue 实例的根数据对象。</p>
 
-- **参考**：[深入响应式原理](../guide/reactivity.html)
 
 ### Vue.directive( id, [definition] )
 
@@ -305,7 +300,6 @@
   var myDirective = Vue.directive('my-directive')
   ```
 
-- **参考**：[自定义指令](../guide/custom-directive.html)
 
 ### Vue.filter( id, [definition] )
 
@@ -326,8 +320,6 @@
   // getter，返回已注册的过滤器
   var myFilter = Vue.filter('my-filter')
   ```
-
-- **参考**：[过滤器](../guide/filters.html)
 
 ### Vue.component( id, [definition] )
 
@@ -350,8 +342,6 @@
   var MyComponent = Vue.component('my-component')
   ```
 
-- **参考**：[组件](../guide/components.html)
-
 ### Vue.use( plugin )
 
 - **参数**：
@@ -365,7 +355,6 @@
 
   当 install 方法被同一个插件多次调用，插件将只会被安装一次。
 
-- **参考**：[插件](../guide/plugins.html)
 
 ### Vue.mixin( mixin )
 
@@ -375,8 +364,6 @@
 - **用法**：
 
   全局注册一个混入，影响注册之后所有创建的每个 Vue 实例。插件作者可以使用混入，向组件注入自定义的行为。**不推荐在应用代码中使用**。
-
-- **参考**：[全局混入](../guide/mixins.html#全局混入)
 
 ### Vue.compile( template )
 
@@ -399,7 +386,6 @@
   })
   ```
 
-- **参考**：[渲染函数](../guide/render-function.html)
 
 ### Vue.observable( object )
 
@@ -428,7 +414,6 @@
 
   <p class="tip">在 Vue 2.x 中，被传入的对象会直接被 `Vue.observable` 改变，所以如[这里展示的](../guide/instance.html#数据与方法)，它和被返回的对象是同一个对象。在 Vue 3.x 中，则会返回一个可响应的代理，而对源对象直接进行修改仍然是不可响应的。因此，为了向前兼容，我们推荐始终操作使用 `Vue.observable` 返回的对象，而不是传入源对象。</p>
 
-- **参考**：[深入响应式原理](../guide/reactivity.html)
 
 ### Vue.version
 
@@ -496,7 +481,6 @@
   data: vm => ({ a: vm.myProp })
   ```
 
-- **参考**：[深入响应式原理](../guide/reactivity.html)
 
 ### props
 
@@ -541,7 +525,6 @@
   })
   ```
 
-- **参考**：[Props](../guide/components-props.html)
 
 ### propsData
 
@@ -613,7 +596,6 @@
   vm.aDouble // => 4
   ```
 
-- **参考**：[计算属性](../guide/computed.html)
 
 ### methods
 
@@ -640,7 +622,6 @@
   vm.a // 2
   ```
 
-- **参考**：[事件处理器](../guide/events.html)
 
 ### watch
 
@@ -698,7 +679,6 @@
 
   <p class="tip">注意，**不应该使用箭头函数来定义 watcher 函数** (例如 `searchQuery: newValue => this.updateAutocomplete(newValue)`)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向 Vue 实例，`this.updateAutocomplete` 将是 undefined。</p>
 
-- **参考**：[实例方法 / 数据 - vm.$watch](#vm-watch)
 
 ## 选项 / DOM
 
@@ -720,9 +700,6 @@
 
   <p class="tip">如果 `render` 函数和 `template` 属性都不存在，挂载 DOM 元素的 HTML 会被提取出来用作模板，此时，必须使用 Runtime + Compiler 构建的 Vue 库。</p>
 
-- **参考**：
-  - [生命周期图示](../guide/instance.html#生命周期图示)
-  - [运行时 + 编译器 vs. 只包含运行时](../guide/installation.html#运行时-编译器-vs-只包含运行时)
 
 ### template
 
@@ -738,9 +715,6 @@
 
   <p class="tip">如果 Vue 选项中包含渲染函数，该模板将被忽略。</p>
 
-- **参考**：
-  - [生命周期图示](../guide/instance.html#生命周期图示)
-  - [通过插槽分发内容](../guide/components.html#通过插槽分发内容)
 
 ### render
 
@@ -754,7 +728,6 @@
 
     <p class="tip">Vue 选项中的 `render` 函数若存在，则 Vue 构造函数不会从 `template` 选项或通过 `el` 选项指定的挂载元素中提取出的 HTML 模板编译渲染函数。</p>
 
-  - **参考**：[渲染函数](../guide/render-function.html)
 
 ### renderError
 
@@ -780,9 +753,6 @@
       }
     }).$mount('#app')
     ```
-
-  - **参考**：[渲染函数](../guide/render-function.html)
-
 ## 选项 / 生命周期钩子
 
 <p class="tip">所有的生命周期钩子自动绑定 `this` 上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着**你不能使用箭头函数来定义一个生命周期方法** (例如 `created: () => this.fetchTodos()`)。这是因为箭头函数绑定了父上下文，因此 `this` 与你期待的 Vue 实例不同，`this.fetchTodos` 的行为未定义。</p>
@@ -795,7 +765,6 @@
 
   在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
 
-- **参考**：[生命周期图示](../guide/instance.html#生命周期图示)
 
 ### created
 
@@ -805,7 +774,6 @@
 
   在实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，`$el` 属性目前不可见。
 
-- **参考**：[生命周期图示](../guide/instance.html#生命周期图示)
 
 ### beforeMount
 
@@ -817,7 +785,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-- **参考**：[生命周期图示](../guide/instance.html#生命周期图示)
 
 ### mounted
 
@@ -840,7 +807,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-- **参考**：[生命周期图示](../guide/instance.html#生命周期图示)
 
 ### beforeUpdate
 
@@ -851,8 +817,6 @@
   数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。
 
   **该钩子在服务器端渲染期间不被调用，因为只有初次渲染会在服务端进行。**
-
-- **参考**：[生命周期图示](../guide/instance.html#生命周期图示)
 
 ### updated
 
@@ -877,7 +841,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-- **参考**：[生命周期图示](../guide/instance.html#生命周期图示)
 
 ### activated
 
@@ -889,9 +852,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-- **参考**：
-  - [构建组件 - keep-alive](#keep-alive)
-  - [动态组件 - keep-alive](../guide/components-dynamic-async.html#在动态组件上使用-keep-alive)
 
 ### deactivated
 
@@ -903,9 +863,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-- **参考**：
-  - [构建组件 - keep-alive](#keep-alive)
-  - [动态组件 - keep-alive](../guide/components-dynamic-async.html#在动态组件上使用-keep-alive)
 
 ### beforeDestroy
 
@@ -917,7 +874,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-- **参考**：[生命周期图示](../guide/instance.html#生命周期图示)
 
 ### destroyed
 
@@ -929,7 +885,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-- **参考**：[生命周期图示](../guide/instance.html#生命周期图示)
 
 ### errorCaptured
 
@@ -963,7 +918,6 @@
 
 包含 Vue 实例可用指令的哈希表。
 
-- **参考**：[自定义指令](../guide/custom-directive.html)
 
 ### filters
 
@@ -973,7 +927,6 @@
 
 包含 Vue 实例可用过滤器的哈希表。
 
-- **参考**：[`Vue.filter`](#Vue-filter)
 
 ### components
 
@@ -982,8 +935,6 @@
 - **详细**：
 
 包含 Vue 实例可用组件的哈希表。
-
-- **参考**：[组件](../guide/components.html)
 
 ## 选项 / 组合
 
@@ -1021,7 +972,6 @@
   // => 2
   ```
 
-- **参考**：[混入](../guide/mixins.html)
 
 ### extends
 
@@ -1221,7 +1171,6 @@
 
   使组件无状态 (没有 `data` ) 和无实例 (没有 `this` 上下文)。他们用一个简单的 `render` 函数返回虚拟节点使他们更容易渲染。
 
-- **参考**：[函数式组件](../guide/render-function.html#函数式组件)
 
 ### model
 
@@ -1306,7 +1255,6 @@
 
   Vue 实例观察的数据对象。Vue 实例代理了对其 data 对象属性的访问。
 
-- **参考**：[选项 / 数据 - data](#data)
 
 ### vm.$props
 
@@ -1425,10 +1373,6 @@
   })
   ```
 
-- **参考**：
-  - [`<slot>` 组件](#slot)
-  - [通过插槽分发内容](../guide/components.html#通过插槽分发内容)
-  - [渲染函数 - 插槽](../guide/render-function.html#插槽)
 
 ### vm.$scopedSlots
 
@@ -1450,10 +1394,6 @@
 
   2. 所有的 `$slots` 现在都会作为函数暴露在 `$scopedSlots` 中。如果你在使用渲染函数，不论当前插槽是否带有作用域，我们都推荐始终通过 `$scopedSlots` 访问它们。这不仅仅使得在未来添加作用域变得简单，也可以让你最终轻松迁移到所有插槽都是函数的 Vue 3。
 
-- **参考**：
-  - [`<slot>` 组件](#slot)
-  - [作用域插槽](../guide/components-slots.html#作用域插槽)
-  - [渲染函数 - 插槽](../guide/render-function.html#插槽)
 
 ### vm.$refs
 
@@ -1465,9 +1405,6 @@
 
   一个对象，持有注册过 [`ref` 特性](#ref) 的所有 DOM 元素和组件实例。
 
-- **参考**：
-  - [子组件引用](../guide/components-edge-cases.html#访问子组件实例或子元素)
-  - [特殊特性 - ref](#ref)
 
 ### vm.$isServer
 
@@ -1479,7 +1416,6 @@
 
   当前 Vue 实例是否运行于服务器。
 
-- **参考**：[服务端渲染](../guide/ssr.html)
 
 ### vm.$attrs
 
@@ -1590,8 +1526,6 @@
 
   这是全局 `Vue.set` 的**别名**。
 
-- **参考**：[Vue.set](#Vue-set)
-
 ### vm.$delete( target, propertyName/index )
 
 - **参数**：
@@ -1602,7 +1536,6 @@
 
   这是全局 `Vue.delete` 的**别名**。
 
-- **参考**：[Vue.delete](#Vue-delete)
 
 ## 实例方法 / 事件
 
@@ -1769,10 +1702,6 @@
   document.getElementById('app').appendChild(component.$el)
   ```
 
-- **参考**：
-  - [生命周期图示](../guide/instance.html#生命周期图示)
-  - [服务端渲染](../guide/ssr.html)
-
 ### vm.$forceUpdate()
 
 - **示例**：
@@ -1811,10 +1740,6 @@
   })
   ```
 
-- **参考**
-  - [Vue.nextTick](#Vue-nextTick)
-  - [异步更新队列](../guide/reactivity.html#异步更新队列)
-
 ### vm.$destroy()
 
 - **用法**：
@@ -1825,7 +1750,6 @@
 
   <p class="tip">在大多数场景中你不应该调用这个方法。最好使用 `v-if` 和 `v-for` 指令以数据驱动的方式控制子组件的生命周期。</p>
 
-- **参考**：[生命周期图示](../guide/instance.html#生命周期图示)
 
 ## 指令
 
@@ -1845,7 +1769,6 @@
   <span>{{msg}}</span>
   ```
 
-- **参考**：[数据绑定语法 - 插值](../guide/syntax.html#插值)
 
 ### v-html
 
@@ -1865,7 +1788,6 @@
   <div v-html="html"></div>
   ```
 
-- **参考**：[数据绑定语法 - 插值](../guide/syntax.html#纯-HTML)
 
 ### v-show
 
@@ -1877,7 +1799,6 @@
 
   当条件变化时该指令触发过渡效果。
 
-- **参考**：[条件渲染 - v-show](../guide/conditional.html#v-show)
 
 ### v-if
 
@@ -1891,7 +1812,6 @@
 
   <p class="tip">当和 `v-if` 一起使用时，`v-for` 的优先级比 `v-if` 更高。详见[列表渲染教程](../guide/list.html#v-for-with-v-if)</p>
 
-- **参考**：[条件渲染 - v-if](../guide/conditional.html)
 
 ### v-else
 
@@ -1911,8 +1831,6 @@
     Now you don't
   </div>
   ```
-
-- **参考**：[条件渲染 - v-else](../guide/conditional.html#v-else)
 
 ### v-else-if
 
@@ -1941,7 +1859,6 @@
   </div>
   ```
 
-- **参考**：[条件渲染 - v-else-if](../guide/conditional.html#v-else-if)
 
 ### v-for
 
@@ -1979,9 +1896,7 @@
 
   `v-for` 的详细用法可以通过以下链接查看教程详细说明。
 
-- **参考**：
-  - [列表渲染](../guide/list.html)
-  - [key](../guide/list.html#key)
+
 
 ### v-on
 
@@ -2069,9 +1984,6 @@
   <my-component @click.native="onClick"></my-component>
   ```
 
-- **参考**：
-  - [事件处理器](../guide/events.html)
-  - [组件 - 自定义事件](../guide/components.html#监听子组件事件)
 
 ### v-bind
 
@@ -2147,11 +2059,6 @@
 
   在使用字符串模板或通过 `vue-loader`/`vueify` 编译时，无需使用 `.camel`。
 
-- **参考**：
-  - [Class 与 Style 绑定](../guide/class-and-style.html)
-  - [组件 - Props](../guide/components.html#通过-Prop-向子组件传递数据)
-  - [组件 - `.sync` 修饰符](../guide/components-custom-events.html#sync-修饰符)
-
 ### v-model
 
 - **预期**：随表单控件类型不同而不同。
@@ -2171,9 +2078,6 @@
 
   在表单控件或者组件上创建双向绑定。细节请看下面的教程链接。
 
-- **参考**：
-  - [表单控件绑定](../guide/forms.html)
-  - [组件 - 在输入组件上使用自定义事件](../guide/components-custom-events.html#将原生事件绑定到组件)
 
 ### v-slot
 
@@ -2224,9 +2128,6 @@
 
   更多细节请查阅以下链接。
 
-- **参考**：
-  - [组件 - 插槽](../guide/components-slots.html)
-  - [RFC-0001](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md)
 
 ### v-pre
 
@@ -2290,9 +2191,6 @@
   </ul>
   ```
 
-- **参考**：
-  - [数据绑定语法- 插值](../guide/syntax.html#插值)
-  - [组件 - 对低开销的静态组件使用 `v-once`](../guide/components-edge-cases.html#通过-v-once-创建低开销的静态组件)
 
 ## 特殊特性
 
@@ -2345,7 +2243,6 @@
 
   关于 ref 注册时间的重要说明：因为 ref 本身是作为渲染结果被创建的，在初始渲染的时候你不能访问它们 - 它们还不存在！`$refs` 也不是响应式的，因此你不应该试图用它在模板中做数据绑定。
 
-- **参考**：[子组件引用](../guide/components-edge-cases.html#访问子组件实例或子元素)
 
 ### is
 
@@ -2380,7 +2277,6 @@
 
   用于标记往哪个具名插槽中插入子组件内容。
 
-- **参考**：[具名插槽](../guide/components-slots.html#具名插槽)
 
 ### slot-scope <sup style="color:#c92222">废弃</sup>
 
@@ -2394,7 +2290,6 @@
 
   此属性不支持动态绑定。
 
-- **参考**：[作用域插槽](../guide/components-slots.html#作用域插槽)
 
 ### scope <sup style="color:#c92222">移除</sup>
 
@@ -2425,8 +2320,6 @@
   <!-- 也能够渲染注册过的组件或 prop 传入的组件 -->
   <component :is="$options.components.child"></component>
   ```
-
-- **参考**：[动态组件](../guide/components.html#动态组件)
 
 ### transition
 
@@ -2496,7 +2389,6 @@
   }).$mount('#transition-demo')
   ```
 
-- **参考**：[过渡：进入，离开和列表](../guide/transitions.html)
 
 ### transition-group
 
@@ -2524,7 +2416,6 @@
   </transition-group>
   ```
 
-- **参考**：[过渡：进入，离开和列表](../guide/transitions.html)
 
 ### keep-alive
 
@@ -2604,7 +2495,6 @@
 
   <p class="tip">`<keep-alive>` 不会在函数式组件中正常工作，因为它们没有缓存实例。</p>
 
-- **参考**：[动态组件 - keep-alive](../guide/components-dynamic-async.html#在动态组件上使用-keep-alive)
 
 ### slot
 
@@ -2617,12 +2507,11 @@
 
   详细用法，请参考下面教程的链接。
 
-- **参考**：[通过插槽分发内容](../guide/components.html#通过插槽分发内容)
+
 
 ## VNode 接口
 
-- 请参考 [VNode class declaration](https://github.com/vuejs/vue/blob/dev/src/core/vdom/vnode.js)。
+
 
 ## 服务端渲染
 
-- 请参考 [vue-server-renderer package documentation](https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer)。
