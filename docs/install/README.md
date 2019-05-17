@@ -56,6 +56,9 @@ npm install -g vuepress
 
 ```
 npm install netlify-cli -g
+//项目下使用进行持续部署
+netlify dev --live
 ```
+
 
 
