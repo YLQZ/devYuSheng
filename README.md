@@ -5,7 +5,9 @@ QQ群：45686341
 CodeSeach 是基于vuepress开发、mackdown 编辑的**文档**、**记录**、**api**，**解决方案** 搜索站点
 探针深度 ### 即 h1 h2 h3 的深度 3级导航
 
-<h1>已经部署，持续集成 地址:https://devyusheg.netlify.com/</h1>
+<h1>已经部署，持续集成 </h1>
+
+[在线地址](https://devyusheg.netlify.com/)
 
 下载代码后 需要先行安装vuepress
 
