@@ -52,9 +52,10 @@ npm install -g @vue/cli-init
 npm install -g vuepress
 ```
 
+### netlify-cli 持续部署
 
-
-
-
+```
+npm install netlify-cli -g
+```
 
 
