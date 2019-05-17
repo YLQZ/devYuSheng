@@ -121,7 +121,7 @@ html, body {
   .feature {
     width: 22%;
     box-sizing: border-box;
-    height:130px;
+    height:200px;
     overflow:hidden;
 
     h1 {
@@ -160,6 +160,7 @@ html, body {
         padding: 0 5px;
         color: lighten($textColor, 25%);
         font-size: 14px;
+        text-align center;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;

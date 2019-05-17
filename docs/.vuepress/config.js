@@ -161,6 +161,25 @@ module.exports = {
           ]
         }
       ],
+      '/Npm/': [
+        {
+          title: '基础',
+          collapsable: false,
+          children: genNpmEssentialsSidebar()
+        },
+        {
+          title: '进阶',
+          collapsable: false,
+          children: genNpmAdvancedSidebar()
+        },
+        {
+          title: '其它',
+          collapsable: false,
+          children: [
+         
+          ]
+        }
+      ],
       '/Vue/': [
         {
           title: '基础',
@@ -359,6 +378,25 @@ function genMackDownEssentialsSidebar(type = '') {
 function genMackDownAdvancedSidebar(type = '') {
   const mapArr = [
     '/MackDown/advanced/advanced.md',
+  ]
+  return mapArr.map(i => {
+    return type + i
+  })
+}
+// TODO: npm 对外路径配置
+function genNpmEssentialsSidebar(type = '') {
+  const mapArr = [
+    '/Npm/',
+    '/Npm/essentials/essentials.md',
+  ]
+  return mapArr.map(i => {
+    return type + i
+  })
+}
+
+function genNpmAdvancedSidebar(type = '') {
+  const mapArr = [
+    '/Npm/advanced/advanced.md',
   ]
   return mapArr.map(i => {
     return type + i

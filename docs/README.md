@@ -36,6 +36,11 @@
           link: /webpack/
         },
         {
+          title: npm,
+          details: NPM（node package manager）是 Node.js 世界的包管理器。NPM 可以让 JavaScript 开发者在共享代码、复用代码以及更新共享的代码上更加方便。,
+          link: /Npm/
+        },
+        {
           title: vue,
           details: ,
           link: /Vue/
