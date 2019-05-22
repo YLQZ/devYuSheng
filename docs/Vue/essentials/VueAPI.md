@@ -4,12 +4,10 @@
 
 `Vue.config`  是一个对象，包含 Vue 的全局配置。可以在启动应用之前修改下列属性：
 
-### silent
+### silent 日志与警告
 
 - **类型**：`boolean`
-
 - **默认值**：`false`
-
 - **用法**：
 
   ``` js
@@ -18,7 +16,7 @@
 
   取消 Vue 所有的日志与警告。
 
-### optionMergeStrategies
+### optionMergeStrategies 自定义合并策略的选项
 
 - **类型**：`{ [key: string]: Function }`
 
@@ -42,7 +40,6 @@
 
   合并策略选项分别接收在父实例和子实例上定义的该选项的值作为第一个和第二个参数，Vue 实例上下文被作为第三个参数传入。
 
-
 ### devtools
 
 - **类型**：`boolean`
@@ -61,9 +58,7 @@
 ### errorHandler
 
 - **类型**：`Function`
-
 - **默认值**：`undefined`
-
 - **用法**：
 
   ``` js
@@ -74,15 +69,14 @@
   }
   ```
 
-  指定组件的渲染和观察期间未捕获错误的处理函数。这个处理函数被调用时，可获取错误信息和 Vue 实例。
+指定组件的渲染和观察期间未捕获错误的处理函数。这个处理函数被调用时，可获取错误信息和 Vue 实例。
+> 从 2.2.0 起，这个钩子也会捕获组件生命周期钩子里的错误。同样的，当这个钩子是 `undefined` 时，被捕获的错误会通过 `console.error` 输出而避免应用崩溃。
 
-  > 从 2.2.0 起，这个钩子也会捕获组件生命周期钩子里的错误。同样的，当这个钩子是 `undefined` 时，被捕获的错误会通过 `console.error` 输出而避免应用崩溃。
+> 从 2.4.0 起，这个钩子也会捕获 Vue 自定义事件处理函数内部的错误了。
 
-  > 从 2.4.0 起，这个钩子也会捕获 Vue 自定义事件处理函数内部的错误了。
+> 从 2.6.0 起，这个钩子也会捕获 `v-on` DOM 监听器内部抛出的错误。另外，如果任何被覆盖的钩子或处理函数返回一个 Promise 链 (例如 async 函数)，则来自其 Promise 链的错误也会被处理。
 
-  > 从 2.6.0 起，这个钩子也会捕获 `v-on` DOM 监听器内部抛出的错误。另外，如果任何被覆盖的钩子或处理函数返回一个 Promise 链 (例如 async 函数)，则来自其 Promise 链的错误也会被处理。
-
-  > 错误追踪服务 [Sentry](https://sentry.io) 和 [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) 都通过此选项提供了官方支持。
+> 错误追踪服务 [Sentry](https://sentry.io) 和 [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) 都通过此选项提供了官方支持。
 
 ### warnHandler
 
@@ -238,7 +232,6 @@
 
   > 2.1.0 起新增：如果没有提供回调且在支持 Promise 的环境中，则返回一个 Promise。请注意 Vue 不自带 Promise 的 polyfill，所以如果你的目标浏览器不原生支持 Promise (IE：你们都看我干嘛)，你得自己提供 polyfill。
 
-
 ### Vue.set( target, propertyName/index, value )
 
 - **参数**：
@@ -252,7 +245,7 @@
 
   向响应式对象中添加一个属性，并确保这个新属性同样是响应式的，且触发视图更新。它必须用于向响应式对象上添加新属性，因为 Vue 无法探测普通的新增属性 (比如 `this.myObject.newProperty = 'hi'`)
 
-  <p class="tip">注意对象不能是 Vue 实例，或者 Vue 实例的根数据对象。</p>
+  注意对象不能是 Vue 实例，或者 Vue 实例的根数据对象
 
 ### Vue.delete( target, propertyName/index )
 
@@ -268,8 +261,7 @@
 
   > 在 2.2.0+ 中同样支持在数组上工作。
 
-  <p class="tip">目标对象不能是一个 Vue 实例或 Vue 实例的根数据对象。</p>
-
+  目标对象不能是一个 Vue 实例或 Vue 实例的根数据对象。
 
 ### Vue.directive( id, [definition] )
 
@@ -299,7 +291,6 @@
   // getter，返回已注册的指令
   var myDirective = Vue.directive('my-directive')
   ```
-
 
 ### Vue.filter( id, [definition] )
 
@@ -355,7 +346,6 @@
 
   当 install 方法被同一个插件多次调用，插件将只会被安装一次。
 
-
 ### Vue.mixin( mixin )
 
 - **参数**：
@@ -386,7 +376,6 @@
   })
   ```
 
-
 ### Vue.observable( object )
 
 > 2.6.0 新增
@@ -398,7 +387,7 @@
 
   让一个对象可响应。Vue 内部会用它来处理 `data` 函数返回的对象。
 
-  返回的对象可以直接用于[渲染函数](../guide/render-function.html)和[计算属性](../guide/computed.html)内，并且会在发生改变时触发相应的更新。也可以作为最小化的跨组件状态存储器，用于简单的场景：
+  返回的对象可以直接用于[渲染函数]()和[计算属性]()内，并且会在发生改变时触发相应的更新。也可以作为最小化的跨组件状态存储器，用于简单的场景：
 
   ``` js
   const state = Vue.observable({ count: 0 })
@@ -412,8 +401,7 @@
   }
   ```
 
-  <p class="tip">在 Vue 2.x 中，被传入的对象会直接被 `Vue.observable` 改变，所以如[这里展示的](../guide/instance.html#数据与方法)，它和被返回的对象是同一个对象。在 Vue 3.x 中，则会返回一个可响应的代理，而对源对象直接进行修改仍然是不可响应的。因此，为了向前兼容，我们推荐始终操作使用 `Vue.observable` 返回的对象，而不是传入源对象。</p>
-
+  在 Vue 2.x 中，被传入的对象会直接被 `Vue.observable` 改变，所以如[这里展示的]()，它和被返回的对象是同一个对象。在 Vue 3.x 中，则会返回一个可响应的代理，而对源对象直接进行修改仍然是不可响应的。因此，为了向前兼容，我们推荐始终操作使用 `Vue.observable` 返回的对象，而不是传入源对象。
 
 ### Vue.version
 
@@ -480,8 +468,7 @@
   ```js
   data: vm => ({ a: vm.myProp })
   ```
-
-
+  
 ### props
 
 - **类型**：`Array<string> | Object`
@@ -491,13 +478,16 @@
   props 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义验证和设置默认值。
 
   你可以基于对象的语法使用以下选项：
-    - `type`: 可以是下列原生构造函数中的一种：`String`、`Number`、`Boolean`、`Array`、`Object`、`Date`、`Function`、`Symbol`、任何自定义构造函数、或上述内容组成的数组。会检查一个 prop 是否是给定的类型，否则抛出警告。Prop 类型的[更多信息在此](../guide/components-props.html#Prop-类型)。
+    - `type`: 可以是下列原生构造函数中的一种：`String`、`Number`、`Boolean`、`Array`、`Object`、`Date`、`Function`、`Symbol`、任何自定义构造函数、或上述内容组成的数组。会检查一个 prop 是否是给定的类型，否则抛出警告。Prop 类型的[更多信息在此]()。
+
     - `default`: `any`
     为该 prop 指定一个默认值。如果该 prop 没有被传入，则换做用这个值。对象或数组的默认值必须从一个工厂函数返回。
+
     - `required`: `Boolean`
     定义该 prop 是否是必填项。在非生产环境中，如果这个值为 truthy 且该 prop 没有被传入的，则一个控制台警告将会被抛出。
+
     - `validator`: `Function`
-    自定义验证函数会将该 prop 的值作为唯一的参数代入。在非生产环境下，如果该函数返回一个 falsy 的值 (也就是验证失败)，一个控制台警告将会被抛出。你可以在[这里](../guide/components-props.html#Prop-验证)查阅更多 prop 验证的相关信息。
+    自定义验证函数会将该 prop 的值作为唯一的参数代入。在非生产环境下，如果该函数返回一个 falsy 的值 (也就是验证失败)，一个控制台警告将会被抛出。你可以在[这里]()查阅更多 prop 验证的相关信息。
 
 - **示例**：
 
@@ -596,7 +586,6 @@
   vm.aDouble // => 4
   ```
 
-
 ### methods
 
 - **类型**：`{ [key: string]: Function }`
@@ -605,7 +594,7 @@
 
   methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 `this` 自动绑定为 Vue 实例。
 
-  <p class="tip">注意，**不应该使用箭头函数来定义 method 函数** (例如 `plus: () => this.a++`)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向 Vue 实例，`this.a` 将是 undefined。</p>
+  注意，**不应该使用箭头函数来定义 method 函数** (例如 `plus: () => this.a++`)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向 Vue 实例，`this.a` 将是 undefined。
 
 - **示例**：
 
@@ -621,7 +610,6 @@
   vm.plus()
   vm.a // 2
   ```
-
 
 ### watch
 
@@ -677,8 +665,7 @@
   vm.a = 2 // => new: 2, old: 1
   ```
 
-  <p class="tip">注意，**不应该使用箭头函数来定义 watcher 函数** (例如 `searchQuery: newValue => this.updateAutocomplete(newValue)`)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向 Vue 实例，`this.updateAutocomplete` 将是 undefined。</p>
-
+  注意，**不应该使用箭头函数来定义 watcher 函数** (例如 `searchQuery: newValue => this.updateAutocomplete(newValue)`)。理由是箭头函数绑定了父级作用域的上下文，所以 `this` 将不会按照期望指向 Vue 实例，`this.updateAutocomplete` 将是 undefined。
 
 ## 选项 / DOM
 
@@ -696,10 +683,9 @@
 
   如果在实例化时存在这个选项，实例将立即进入编译过程，否则，需要显式调用 `vm.$mount()` 手动开启编译。
 
-  <p class="tip"> 提供的元素只能作为挂载点。不同于 Vue 1.x，所有的挂载元素会被 Vue 生成的 DOM 替换。因此不推荐挂载 root 实例到 `<html>` 或者 `<body>` 上。</p>
+  提供的元素只能作为挂载点。不同于 Vue 1.x，所有的挂载元素会被 Vue 生成的 DOM 替换。因此不推荐挂载 root 实例到 `<html>` 或者 `<body>` 上。
 
-  <p class="tip">如果 `render` 函数和 `template` 属性都不存在，挂载 DOM 元素的 HTML 会被提取出来用作模板，此时，必须使用 Runtime + Compiler 构建的 Vue 库。</p>
-
+  如果 `render` 函数和 ```template``` 属性都不存在，挂载 DOM 元素的 HTML 会被提取出来用作模板，此时，必须使用 Runtime + Compiler 构建的 Vue 库。
 
 ### template
 
@@ -711,37 +697,35 @@
 
   如果值以 `#` 开始，则它将被用作选择符，并使用匹配元素的 innerHTML 作为模板。常用的技巧是用 `<script type="x-template">` 包含模板。
 
-  <p class="tip">出于安全考虑，你应该只使用你信任的 Vue 模板。避免使用其他人生成的内容作为你的模板。</p>
+  出于安全考虑，你应该只使用你信任的 Vue 模板。避免使用其他人生成的内容作为你的模板。
 
-  <p class="tip">如果 Vue 选项中包含渲染函数，该模板将被忽略。</p>
-
+  如果 Vue 选项中包含渲染函数，该模板将被忽略。
 
 ### render
 
-  - **类型**：`(createElement: () => VNode) => VNode`
+- **类型**：`(createElement: () => VNode) => VNode`
 
-  - **详细**：
+- **详细**：
 
     字符串模板的代替方案，允许你发挥 JavaScript 最大的编程能力。该渲染函数接收一个 `createElement` 方法作为第一个参数用来创建 `VNode`。
 
     如果组件是一个函数组件，渲染函数还会接收一个额外的 `context` 参数，为没有实例的函数组件提供上下文信息。
 
-    <p class="tip">Vue 选项中的 `render` 函数若存在，则 Vue 构造函数不会从 `template` 选项或通过 `el` 选项指定的挂载元素中提取出的 HTML 模板编译渲染函数。</p>
-
+    Vue 选项中的 `render` 函数若存在，则 Vue 构造函数不会从 `template` 选项或通过 `el` 选项指定的挂载元素中提取出的 HTML 模板编译渲染函数。
 
 ### renderError
 
 > 2.2.0 新增
 
-  - **类型**：`(createElement: () => VNode, error: Error) => VNode`
+- **类型**：`(createElement: () => VNode, error: Error) => VNode`
 
-  - **详细**：
+- **详细**：
 
-    **只在开发者环境下工作。**
+  **只在开发者环境下工作。**
 
     当 `render` 函数遭遇错误时，提供另外一种渲染输出。其错误将会作为第二个参数传递到 `renderError`。这个功能配合 hot-reload 非常实用。
 
-  - **示例**：
+- **示例**：
 
     ``` js
     new Vue({
@@ -753,9 +737,10 @@
       }
     }).$mount('#app')
     ```
+
 ## 选项 / 生命周期钩子
 
-<p class="tip">所有的生命周期钩子自动绑定 `this` 上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着**你不能使用箭头函数来定义一个生命周期方法** (例如 `created: () => this.fetchTodos()`)。这是因为箭头函数绑定了父上下文，因此 `this` 与你期待的 Vue 实例不同，`this.fetchTodos` 的行为未定义。</p>
+所有的生命周期钩子自动绑定 `this` 上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着**你不能使用箭头函数来定义一个生命周期方法** (例如 `created: () => this.fetchTodos()`)。这是因为箭头函数绑定了父上下文，因此 `this` 与你期待的 Vue 实例不同，`this.fetchTodos` 的行为未定义。
 
 ### beforeCreate
 
@@ -765,7 +750,6 @@
 
   在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
 
-
 ### created
 
 - **类型**：`Function`
@@ -773,7 +757,6 @@
 - **详细**：
 
   在实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，`$el` 属性目前不可见。
-
 
 ### beforeMount
 
@@ -784,7 +767,6 @@
   在挂载开始之前被调用：相关的 `render` 函数首次被调用。
 
   **该钩子在服务器端渲染期间不被调用。**
-
 
 ### mounted
 
@@ -806,7 +788,6 @@
   ```
 
   **该钩子在服务器端渲染期间不被调用。**
-
 
 ### beforeUpdate
 
@@ -841,7 +822,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-
 ### activated
 
 - **类型**：`Function`
@@ -851,7 +831,6 @@
   keep-alive 组件激活时调用。
 
   **该钩子在服务器端渲染期间不被调用。**
-
 
 ### deactivated
 
@@ -863,7 +842,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-
 ### beforeDestroy
 
 - **类型**：`Function`
@@ -873,7 +851,6 @@
   实例销毁之前调用。在这一步，实例仍然完全可用。
 
   **该钩子在服务器端渲染期间不被调用。**
-
 
 ### destroyed
 
@@ -885,7 +862,6 @@
 
   **该钩子在服务器端渲染期间不被调用。**
 
-
 ### errorCaptured
 
 > 2.5.0+ 新增
@@ -896,7 +872,7 @@
 
   当捕获一个来自子孙组件的错误时被调用。此钩子会收到三个参数：错误对象、发生错误的组件实例以及一个包含错误来源信息的字符串。此钩子可以返回 `false` 以阻止该错误继续向上传播。
 
-  <p class="tip">你可以在此钩子中修改组件的状态。因此在模板或渲染函数中设置其它内容的短路条件非常重要，它可以防止当一个错误被捕获时该组件进入一个无限的渲染循环。</p>
+  你可以在此钩子中修改组件的状态。因此在模板或渲染函数中设置其它内容的短路条件非常重要，它可以防止当一个错误被捕获时该组件进入一个无限的渲染循环。
 
   **错误传播规则**
 
@@ -918,7 +894,6 @@
 
 包含 Vue 实例可用指令的哈希表。
 
-
 ### filters
 
 - **类型**：`Object`
@@ -926,7 +901,6 @@
 - **详细**：
 
 包含 Vue 实例可用过滤器的哈希表。
-
 
 ### components
 
@@ -946,7 +920,7 @@
 
   指定已创建的实例之父实例，在两者之间建立父子关系。子实例可以用 `this.$parent` 访问父实例，子实例被推入父实例的 `$children` 数组中。
 
-  <p class="tip">节制地使用 `$parent` 和 `$children` - 它们的主要目的是作为访问组件的应急方法。更推荐用 props 和 events 实现父子组件通信</p>
+  节制地使用 `$parent` 和 `$children` - 它们的主要目的是作为访问组件的应急方法。更推荐用 props 和 events 实现父子组件通信
 
 ### mixins
 
@@ -971,7 +945,6 @@
   // => 1
   // => 2
   ```
-
 
 ### extends
 
@@ -1005,7 +978,7 @@
 
 - **详细**：
 
-  <p class="tip">`provide` 和 `inject` 主要为高阶插件/组件库提供用例。并不推荐直接用于应用程序代码中。</p>
+  `provide` 和 `inject` 主要为高阶插件/组件库提供用例。并不推荐直接用于应用程序代码中。
 
   这对选项需要一起使用，以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成立的时间里始终生效。如果你熟悉 React，这与 React 的上下文特性很相似。
 
@@ -1171,7 +1144,6 @@
 
   使组件无状态 (没有 `data` ) 和无实例 (没有 `this` 上下文)。他们用一个简单的 `render` 函数返回虚拟节点使他们更容易渲染。
 
-
 ### model
 
 > 2.2.0 新增
@@ -1255,7 +1227,6 @@
 
   Vue 实例观察的数据对象。Vue 实例代理了对其 data 对象属性的访问。
 
-
 ### vm.$props
 
 > 2.2.0 新增
@@ -1333,12 +1304,12 @@
 
 - **详细**：
 
-  用来访问被[插槽分发](../guide/components.html#通过插槽分发内容)的内容。每个[具名插槽](../guide/components-slots.html#具名插槽) 有其相应的属性 (例如：`v-slot:foo` 中的内容将会在 `vm.$slots.foo` 中被找到)。`default` 属性包括了所有没有被包含在具名插槽中的节点，或 `v-slot:default` 的内容。
+  用来访问被[插槽分发](https://cn.vuejs.org/v2/guide/components.html#通过插槽分发内容)的内容。每个[具名插槽](https://cn.vuejs.org/v2/guide/components-slots.html#具名插槽) 有其相应的属性 (例如：`v-slot:foo` 中的内容将会在 `vm.$slots.foo` 中被找到)。`default` 属性包括了所有没有被包含在具名插槽中的节点，或 `v-slot:default` 的内容。
 
   <!-- todo: translation -->
-  **Note:** `v-slot:foo` is supported in v2.6+. For older versions, you can use the [deprecated syntax](../guide/components-slots.html#Deprecated-Syntax).
+  **Note:** `v-slot:foo` is supported in v2.6+. For older versions, you can use the [deprecated syntax](https://cn.vuejs.org/v2/guide/components-slots.html#Deprecated-Syntax).
 
-  在使用[渲染函数](../guide/render-function.html)书写一个组件时，访问 `vm.$slots` 最有帮助。
+  在使用[渲染函数](https://cn.vuejs.org/v2/guide/render-function.html)书写一个组件时，访问 `vm.$slots` 最有帮助。
 
 - **示例**：
 
@@ -1373,7 +1344,6 @@
   })
   ```
 
-
 ### vm.$scopedSlots
 
 > 2.1.0 新增
@@ -1384,16 +1354,15 @@
 
 - **详细**：
 
-  用来访问[作用域插槽](../guide/components-slots.html#作用域插槽)。对于包括 `默认 slot` 在内的每一个插槽，该对象都包含一个返回相应 VNode 的函数。
+  用来访问[作用域插槽](https://cn.vuejs.org/v2/guide/components-slots.html#作用域插槽)。对于包括 `默认 slot` 在内的每一个插槽，该对象都包含一个返回相应 VNode 的函数。
 
-  `vm.$scopedSlots` 在使用[渲染函数](../guide/render-function.html)开发一个组件时特别有用。
+  `vm.$scopedSlots` 在使用[渲染函数](https://cn.vuejs.org/v2/guide/render-function.html)开发一个组件时特别有用。
 
   **注意**：从 2.6.0 开始，这个属性有两个变化：
 
   1. 作用域插槽函数现在保证返回一个 VNode 数组，除非在返回值无效的情况下返回 `undefined`。
 
   2. 所有的 `$slots` 现在都会作为函数暴露在 `$scopedSlots` 中。如果你在使用渲染函数，不论当前插槽是否带有作用域，我们都推荐始终通过 `$scopedSlots` 访问它们。这不仅仅使得在未来添加作用域变得简单，也可以让你最终轻松迁移到所有插槽都是函数的 Vue 3。
-
 
 ### vm.$refs
 
@@ -1405,7 +1374,6 @@
 
   一个对象，持有注册过 [`ref` 特性](#ref) 的所有 DOM 元素和组件实例。
 
-
 ### vm.$isServer
 
 - **类型**：`boolean`
@@ -1415,7 +1383,6 @@
 - **详细**：
 
   当前 Vue 实例是否运行于服务器。
-
 
 ### vm.$attrs
 
@@ -1458,7 +1425,7 @@
 
   观察 Vue 实例变化的一个表达式或计算属性函数。回调函数得到的参数为新值和旧值。表达式只接受监督的键路径。对于更复杂的表达式，用一个函数取代。
 
-  <p class="tip">注意：在变异 (不是替换) 对象或数组时，旧值将与新值相同，因为它们的引用指向同一个对象/数组。Vue 不会保留变异之前值的副本。</p>
+  注意：在变异 (不是替换) 对象或数组时，旧值将与新值相同，因为它们的引用指向同一个对象/数组。Vue 不会保留变异之前值的副本。
 
 - **示例**：
 
@@ -1535,7 +1502,6 @@
 - **用法**：
 
   这是全局 `Vue.delete` 的**别名**。
-
 
 ## 实例方法 / 事件
 
@@ -1664,8 +1630,6 @@
   })
   ```
 
-  
-
 ## 实例方法 / 生命周期
 
 ### vm.$mount( [elementOrSelector] )
@@ -1748,8 +1712,7 @@
 
   触发 `beforeDestroy` 和 `destroyed` 的钩子。
 
-  <p class="tip">在大多数场景中你不应该调用这个方法。最好使用 `v-if` 和 `v-for` 指令以数据驱动的方式控制子组件的生命周期。</p>
-
+  在大多数场景中你不应该调用这个方法。最好使用 `v-if` 和 `v-for` 指令以数据驱动的方式控制子组件的生命周期。
 
 ## 指令
 
@@ -1769,7 +1732,6 @@
   <span>{{msg}}</span>
   ```
 
-
 ### v-html
 
 - **预期**：`string`
@@ -1778,16 +1740,15 @@
 
   更新元素的 `innerHTML` 。**注意：内容按普通 HTML 插入 - 不会作为 Vue 模板进行编译** 。如果试图使用 `v-html` 组合模板，可以重新考虑是否通过使用组件来替代。
 
-  <p class="tip">在网站上动态渲染任意 HTML 是非常危险的，因为容易导致 [XSS 攻击](https://en.wikipedia.org/wiki/Cross-site_scripting)。只在可信内容上使用 `v-html`，**永不**用在用户提交的内容上。</p>
+  在网站上动态渲染任意 HTML 是非常危险的，因为容易导致  [XSS 攻击](https://en.wikipedia.org/wiki/Cross-site_scripting) 。只在可信内容上使用 `v-html`，**永不**用在用户提交的内容上。
 
-  <p class="tip">在[单文件组件](../guide/single-file-components.html)里，`scoped` 的样式不会应用在 `v-html` 内部，因为那部分 HTML 没有被 Vue 的模板编译器处理。如果你希望针对 `v-html` 的内容设置带作用域的 CSS，你可以替换为 [CSS Modules](https://vue-loader.vuejs.org/en/features/css-modules.html) 或用一个额外的全局 `<style>` 元素手动设置类似 BEM 的作用域策略。</p>
+  在 [单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html) 里，`scoped` 的样式不会应用在 `v-html` 内部，因为那部分 HTML 没有被 Vue 的模板编译器处理。如果你希望针对 `v-html` 的内容设置带作用域的 CSS，你可以替换为 [CSS Modules](https://vue-loader.vuejs.org/en/features/css-modules.html) 或用一个额外的全局 `style` 元素手动设置类似 BEM 的作用域策略。
 
 - **示例**：
 
   ```html
   <div v-html="html"></div>
   ```
-
 
 ### v-show
 
@@ -1799,7 +1760,6 @@
 
   当条件变化时该指令触发过渡效果。
 
-
 ### v-if
 
 - **预期**：`any`
@@ -1810,8 +1770,7 @@
 
   当条件变化时该指令触发过渡效果。
 
-  <p class="tip">当和 `v-if` 一起使用时，`v-for` 的优先级比 `v-if` 更高。详见[列表渲染教程](../guide/list.html#v-for-with-v-if)</p>
-
+  当和 `v-if` 一起使用时，`v-for` 的优先级比 `v-if` 更高。详见[列表渲染教程](https://cn.vuejs.org/v2/guide/list.html#v-for-with-v-if)
 
 ### v-else
 
@@ -1859,7 +1818,6 @@
   </div>
   ```
 
-
 ### v-for
 
 - **预期**：`Array | Object | number | string | Iterable (2.6 新增)`
@@ -1892,11 +1850,9 @@
 
   从 2.6 起，`v-for` 也可以在实现了[可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols#可迭代协议)的值上使用，包括原生的 `Map` 和 `Set`。不过应该注意的是 Vue 2.x 目前并不支持可响应的 `Map` 和 `Set` 值，所以无法自动探测变更。
 
-  <p class="tip">当和 `v-if` 一起使用时，`v-for` 的优先级比 `v-if` 更高。详见[列表渲染教程](../guide/list.html#v-for-with-v-if)</p>
+  当和 `v-if` 一起使用时，`v-for` 的优先级比 `v-if` 更高。详见[列表渲染教程](https://cn.vuejs.org/v2/guide/list.html#v-for-with-v-if)
 
   `v-for` 的详细用法可以通过以下链接查看教程详细说明。
-
-
 
 ### v-on
 
@@ -1984,7 +1940,6 @@
   <my-component @click.native="onClick"></my-component>
   ```
 
-
 ### v-bind
 
 - **缩写**：`:`
@@ -2070,26 +2025,25 @@
   - components
 
 - **修饰符**：
-  - [`.lazy`](../guide/forms.html#lazy) - 取代 `input` 监听 `change` 事件
-  - [`.number`](../guide/forms.html#number) - 输入字符串转为有效的数字
-  - [`.trim`](../guide/forms.html#trim) - 输入首尾空格过滤
+  - [`.lazy`](https://cn.vuejs.org/v2/guide/forms.html#lazy) - 取代 `input` 监听 `change` 事件
+  - [`.number`](https://cn.vuejs.org/v2/guide/forms.html#number) - 输入字符串转为有效的数字
+  - [`.trim`](https://cn.vuejs.org/v2/guide/forms.html#trim) - 输入首尾空格过滤
 
 - **用法**：
 
   在表单控件或者组件上创建双向绑定。细节请看下面的教程链接。
 
-
 ### v-slot
 
 - **缩写**：`#`
 
-- **预期**：可放置在函数参数位置的 JavaScript 表达式 (在[支持的环境下](../guide/components-slots.html#解构插槽-Props)可使用解构)。可选，即只需要在为插槽传入 prop 的时候使用。
+- **预期**：可放置在函数参数位置的 JavaScript 表达式 (在[支持的环境下](https://cn.vuejs.org/v2/guide/components-slots.html#解构插槽-Props)可使用解构)。可选，即只需要在为插槽传入 prop 的时候使用。
 
 - **参数**：插槽名 (可选，默认值是 `default`)
 
 - **限用于**
   - `<template>`
-  - [组件](../guide/components-slots.html#独占默认插槽的缩写语法) (对于一个单独的带 prop 的默认插槽)
+  - [组件](https://cn.vuejs.org/v2/guide/components-slots.html#独占默认插槽的缩写语法) (对于一个单独的带 prop 的默认插槽)
 
 - **用法**：
 
@@ -2128,7 +2082,6 @@
 
   更多细节请查阅以下链接。
 
-
 ### v-pre
 
 - **不需要表达式**
@@ -2165,7 +2118,7 @@
   </div>
   ```
 
-  <div> 不会显示，直到编译结束。
+  `<div>` 不会显示，直到编译结束。
 
 ### v-once
 
@@ -2190,7 +2143,6 @@
     <li v-for="i in list" v-once>{{i}}</li>
   </ul>
   ```
-
 
 ## 特殊特性
 
@@ -2243,18 +2195,17 @@
 
   关于 ref 注册时间的重要说明：因为 ref 本身是作为渲染结果被创建的，在初始渲染的时候你不能访问它们 - 它们还不存在！`$refs` 也不是响应式的，因此你不应该试图用它在模板中做数据绑定。
 
-
 ### is
 
 - **预期**：`string | Object (组件的选项对象)`
 
-  用于[动态组件](../guide/components.html#动态组件)且基于 [DOM 内模板的限制](../guide/components.html#解析-DOM-模板时的注意事项)来工作。
+  用于[动态组件](https://cn.vuejs.org/v2/guide/components.html#动态组件)且基于 [DOM 内模板的限制](https://cn.vuejs.org/v2/guide/components.html#解析-DOM-模板时的注意事项)来工作。
 
   示例：
 
   ``` html
   <!-- 当 `currentView` 改变时，组件也跟着改变 -->
-  <component v-bind:is="currentView"></component>
+  <!-- <component v-bind:is="currentView"></component> -->
 
   <!-- 这样做是有必要的，因为 `<my-row>` 放在一个 -->
   <!-- `<table>` 内可能无效且被放置到外面 -->
@@ -2266,8 +2217,8 @@
   更多的使用细节，请移步至下面的链接。
 
 - **See also**：
-  - [动态组件](../guide/components.html#动态组件)
-  - [DOM 模板解析说明](../guide/components.html#解析-DOM-模板时的注意事项)
+  - [动态组件](https://cn.vuejs.org/v2/guide/components.html#动态组件)
+  - [DOM 模板解析说明](https://cn.vuejs.org/v2/guide/components.html#解析-DOM-模板时的注意事项)
 
 ### slot <sup style="color:#c92222">废弃</sup>
 
@@ -2276,7 +2227,6 @@
 - **预期**：`string`
 
   用于标记往哪个具名插槽中插入子组件内容。
-
 
 ### slot-scope <sup style="color:#c92222">废弃</sup>
 
@@ -2289,7 +2239,6 @@
   用于将元素或组件表示为作用域插槽。特性的值应该是可以出现在函数签名的参数位置的合法的 JavaScript 表达式。这意味着在支持的环境中，你还可以在表达式中使用 ES2015 解构。它在 2.5.0+ 中替代了 [`scope`](#scope-replaced)。
 
   此属性不支持动态绑定。
-
 
 ### scope <sup style="color:#c92222">移除</sup>
 
@@ -2389,7 +2338,6 @@
   }).$mount('#transition-demo')
   ```
 
-
 ### transition-group
 
 - **Props**：
@@ -2415,7 +2363,6 @@
     </li>
   </transition-group>
   ```
-
 
 ### keep-alive
 
@@ -2492,9 +2439,7 @@
     <component :is="view"></component>
   </keep-alive>
   ```
-
-  <p class="tip">`<keep-alive>` 不会在函数式组件中正常工作，因为它们没有缓存实例。</p>
-
+  `<keep-alive>` 不会在函数式组件中正常工作，因为它们没有缓存实例。
 
 ### slot
 
@@ -2507,11 +2452,6 @@
 
   详细用法，请参考下面教程的链接。
 
-
-
 ## VNode 接口
 
-
-
 ## 服务端渲染
-

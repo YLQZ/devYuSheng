@@ -17,7 +17,7 @@ module.exports = {
       }
     ]
   ],
-  dest: "./dist",
+  dest: './dist',
   themeConfig: {
     repo: 'YLQZ/devYuSheng',
     docsRepo: 'YLQZ/devYuSheng',
@@ -42,9 +42,7 @@ module.exports = {
         {
           title: '其它',
           collapsable: false,
-          children: [
-         
-          ]
+          children: []
         }
       ],
       '/html/': [
@@ -61,9 +59,7 @@ module.exports = {
         {
           title: '其它',
           collapsable: false,
-          children: [
-         
-          ]
+          children: []
         }
       ],
       '/CSS/': [
@@ -80,9 +76,7 @@ module.exports = {
         {
           title: '其它',
           collapsable: false,
-          children: [
-         
-          ]
+          children: []
         }
       ],
       '/JavaScript/': [
@@ -99,9 +93,7 @@ module.exports = {
         {
           title: '其它',
           collapsable: false,
-          children: [
-         
-          ]
+          children: []
         }
       ],
       '/webpack/': [
@@ -118,9 +110,7 @@ module.exports = {
         {
           title: '其它',
           collapsable: false,
-          children: [
-         
-          ]
+          children: []
         }
       ],
       '/Golang/': [
@@ -137,9 +127,7 @@ module.exports = {
         {
           title: '其它',
           collapsable: false,
-          children: [
-         
-          ]
+          children: []
         }
       ],
       '/MackDown/': [
@@ -156,9 +144,7 @@ module.exports = {
         {
           title: '其它',
           collapsable: false,
-          children: [
-         
-          ]
+          children: []
         }
       ],
       '/Npm/': [
@@ -175,9 +161,7 @@ module.exports = {
         {
           title: '其它',
           collapsable: false,
-          children: [
-         
-          ]
+          children: []
         }
       ],
       '/Vue/': [
@@ -194,21 +178,17 @@ module.exports = {
         {
           title: '其它',
           collapsable: false,
-          children: [
-         
-          ]
+          children: []
         }
-      ],
-
-
+      ]
     },
     serviceWorker: {
       updatedPopup: {
-        message: "新内容可用。",
-        buttonText: "刷新"
+        message: '新内容可用。',
+        buttonText: '刷新'
       }
     },
-    lastUpdated: 'Last Updated',
+    lastUpdated: 'Last Updated'
   },
   serviceWorker: true,
   locales: {
@@ -229,80 +209,56 @@ module.exports = {
 
 // TODO: Install 对外路径配置
 function genInstallEssentialsSidebar(type = '') {
-  const mapArr = [
-    '/install/',
-    '/install/essentials/essentials.md',
-    
-  ]
+  const mapArr = ['/install/', '/install/essentials/essentials.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 
 function genInstallAdvancedSidebar(type = '') {
-  const mapArr = [
-    '/install/advanced/advanced.md',
-  ]
+  const mapArr = ['/install/advanced/advanced.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 // TODO: html 对外路径配置
 function genHtmlEssentialsSidebar(type = '') {
-  const mapArr = [
-    '/html/',
-    '/html/essentials/essentials.md',
-    
-  ]
+  const mapArr = ['/html/', '/html/essentials/essentials.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 
 function genHtmlAdvancedSidebar(type = '') {
-  const mapArr = [
-    '/html/advanced/advanced.md',
-  ]
+  const mapArr = ['/html/advanced/advanced.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 // TODO: css 对外路径配置
 function genCssEssentialsSidebar(type = '') {
-  const mapArr = [
-    '/CSS/',
-    '/CSS/essentials/essentials.md',
-    
-  ]
+  const mapArr = ['/CSS/', '/CSS/essentials/essentials.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 
 function genCssAdvancedSidebar(type = '') {
-  const mapArr = [
-    '/CSS/advanced/advanced.md',
-  ]
+  const mapArr = ['/CSS/advanced/advanced.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 // TODO: JavaScript 对外路径配置
 function genJSEssentialsSidebar(type = '') {
-  const mapArr = [
-    '/JavaScript/',
-    '/JavaScript/essentials/essentials.md',
-    
-  ]
+  const mapArr = ['/JavaScript/', '/JavaScript/essentials/essentials.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 
 function genJSAdvancedSidebar(type = '') {
-  const mapArr = [
-    '/JavaScript/advanced/advanced.md',
-  ]
+  const mapArr = ['/JavaScript/advanced/advanced.md']
   return mapArr.map(i => {
     return type + i
   })
@@ -312,17 +268,7 @@ function genJSAdvancedSidebar(type = '') {
 function genWebpackEssentialsSidebar(type = '') {
   const mapArr = [
     '/webpack/',
-    '/webpack/essentials/layout.md',
-    '/webpack/essentials/router-and-nav.md',
-    '/webpack/essentials/permission.md',
-    '/webpack/essentials/tags-view.md',
-    '/webpack/essentials/new-page.md',
-    '/webpack/essentials/style.md',
-    '/webpack/essentials/server.md',
-    '/webpack/essentials/mock-api.md',
-    '/webpack/essentials/import.md',
-    '/webpack/essentials/deploy.md',
-    '/webpack/essentials/env.md'
+
   ]
   return mapArr.map(i => {
     return type + i
@@ -330,10 +276,7 @@ function genWebpackEssentialsSidebar(type = '') {
 }
 
 function genWebpackAdvancedSidebar(type = '') {
-  const mapArr = [
-    '/webpack/advanced/advanced.md',
-
-  ]
+  const mapArr = ['/webpack/advanced/advanced.md']
   return mapArr.map(i => {
     return type + i
   })
@@ -345,7 +288,7 @@ function genGolangEssentialsSidebar(type = '') {
     '/Golang/',
     '/Golang/essentials/essentials.md',
     '/Golang/essentials/variable.md',
-    '/Golang/essentials/const.md',
+    '/Golang/essentials/const.md'
   ]
   return mapArr.map(i => {
     return type + i
@@ -357,8 +300,7 @@ function genGolangAdvancedSidebar(type = '') {
     '/Golang/advanced/beego.md',
     '/Golang/advanced/beegoRouter.md',
     '/Golang/advanced/beegoAPI.md',
-    '/Golang/advanced/gin.md',
-
+    '/Golang/advanced/gin.md'
   ]
   return mapArr.map(i => {
     return type + i
@@ -366,57 +308,42 @@ function genGolangAdvancedSidebar(type = '') {
 }
 // TODO: Mackdown 对外路径配置
 function genMackDownEssentialsSidebar(type = '') {
-  const mapArr = [
-    '/MackDown/',
-    '/MackDown/essentials/essentials.md',
-  ]
+  const mapArr = ['/MackDown/', '/MackDown/essentials/essentials.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 
 function genMackDownAdvancedSidebar(type = '') {
-  const mapArr = [
-    '/MackDown/advanced/advanced.md',
-  ]
+  const mapArr = ['/MackDown/advanced/advanced.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 // TODO: npm 对外路径配置
 function genNpmEssentialsSidebar(type = '') {
-  const mapArr = [
-    '/Npm/',
-    '/Npm/essentials/essentials.md',
-  ]
+  const mapArr = ['/Npm/', '/Npm/essentials/essentials.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 
 function genNpmAdvancedSidebar(type = '') {
-  const mapArr = [
-    '/Npm/advanced/advanced.md',
-  ]
+  const mapArr = ['/Npm/advanced/advanced.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 // TODO: vue 对外路径配置
 function genVueEssentialsSidebar(type = '') {
-  const mapArr = [
-    '/Vue/',
-    '/Vue/essentials/VueAPI.md',
-  ]
+  const mapArr = ['/Vue/', '/Vue/essentials/VueAPI.md']
   return mapArr.map(i => {
     return type + i
   })
 }
 
 function genVueAdvancedSidebar(type = '') {
-  const mapArr = [
-    '/Vue/advanced/advanced.md',
-  ]
+  const mapArr = ['/Vue/advanced/advanced.md']
   return mapArr.map(i => {
     return type + i
   })
