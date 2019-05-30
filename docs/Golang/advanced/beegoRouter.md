@@ -142,11 +142,13 @@ beego.Router("/api/update",&RestController{},"put:UpdateFood")
 beego.Router("/api/delete",&RestController{},"delete:DeleteFood")
 ```
 以下是多个 HTTP Method 指向同一个函数的示例：
-
+```
 beego.Router("/api",&RestController{},"get,post:ApiFunc")
+```
 以下是不同的 method 对应不同的函数，通过 ; 进行分割的示例：
-
+```
 beego.Router("/simple",&SimpleController{},"get:GetFunc;post:PostFunc")
+```
 可用的 HTTP Method：
 
 *: 包含以下所有的函数
