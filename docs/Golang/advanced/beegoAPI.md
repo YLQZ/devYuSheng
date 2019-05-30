@@ -373,3 +373,23 @@ or
 
 beego.BConfig.Log.Outputs["console"] = ""
 ```
+
+## 路由设置
+
+### beego.Get(router, beego.FilterFunc)
+
+### beego.Post(router, beego.FilterFunc)
+
+### beego.Put(router, beego.FilterFunc)
+
+### beego.Patch(router, beego.FilterFunc)
+
+### beego.Head(router, beego.FilterFunc)
+
+### beego.Options(router, beego.FilterFunc)
+
+### beego.Delete(router, beego.FilterFunc)
+
+### beego.Any(router, beego.FilterFunc)
+
+

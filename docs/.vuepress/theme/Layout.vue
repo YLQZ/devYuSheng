@@ -43,6 +43,7 @@
 
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
   </div>
+
 </template>
 
 <script>
@@ -189,7 +190,7 @@ export default {
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="@default-theme/styles/theme.styl" lang="stylus"></style>
 
-<style>
+<style lang="stylus">
 .cf-wrapper a {
   display: block;
 }

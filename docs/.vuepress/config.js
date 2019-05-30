@@ -202,6 +202,18 @@ module.exports = {
       alias: {
         '@public': './public'
       }
+    },
+    module: {
+      rules: [{
+        test: /\.scss$/,
+        use: [{
+            loader: "style-loader" // 将 JS 字符串生成为 style 节点
+        }, {
+            loader: "css-loader" // 将 CSS 转化成 CommonJS 模块
+        }, {
+            loader: "sass-loader" // 将 Sass 编译成 CSS
+        }]
+      }]
     }
   },
   ga: 'UA-109340118-1'
@@ -266,10 +278,7 @@ function genJSAdvancedSidebar(type = '') {
 
 // TODO: webpack 对外路径配置
 function genWebpackEssentialsSidebar(type = '') {
-  const mapArr = [
-    '/webpack/',
-
-  ]
+  const mapArr = ['/webpack/']
   return mapArr.map(i => {
     return type + i
   })
