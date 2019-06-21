@@ -19,7 +19,7 @@
     "semi": false,
     "singleQuote": true
   },
-  "author": "PanJiaChen",
+  "author": "yusheng",
   "license": "ISC",
   "devDependencies": {
     "prettier": "1.14.2",
