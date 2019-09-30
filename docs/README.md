@@ -65,6 +65,11 @@
           details: mackdown编辑器,
           link: /MackDown/
         },
+        {
+          title: VSCode,
+          details: VSCode,
+          link: /VSCode/
+        },
       ]
     }
   ]

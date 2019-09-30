@@ -180,6 +180,23 @@ module.exports = {
           collapsable: false,
           children: []
         }
+      ],
+      '/VSCode/': [
+        {
+          title: '基础',
+          collapsable: false,
+          children: genVSCodeEssentialsSidebar()
+        },
+        {
+          title: '进阶',
+          collapsable: false,
+          children: genVSCodeAdvancedSidebar()
+        },
+        {
+          title: '其它',
+          collapsable: false,
+          children: []
+        }
       ]
     },
     serviceWorker: {
@@ -353,6 +370,20 @@ function genVueEssentialsSidebar(type = '') {
 
 function genVueAdvancedSidebar(type = '') {
   const mapArr = ['/Vue/advanced/advanced.md']
+  return mapArr.map(i => {
+    return type + i
+  })
+}
+// TODO: VSCode 对外路径配置
+function genVSCodeEssentialsSidebar(type = '') {
+  const mapArr = ['/VSCode/', '/VSCode/essentials/VSCodeAPI.md']
+  return mapArr.map(i => {
+    return type + i
+  })
+}
+
+function genVSCodeAdvancedSidebar(type = '') {
+  const mapArr = ['/VSCode/advanced/advanced.md']
   return mapArr.map(i => {
     return type + i
   })
