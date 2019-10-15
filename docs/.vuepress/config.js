@@ -45,6 +45,23 @@ module.exports = {
           children: []
         }
       ],
+      '/Cypress/': [
+        {
+          title: '基础',
+          collapsable: false,
+          children: genCypressEssentialsSidebar()
+        },
+        {
+          title: '进阶',
+          collapsable: false,
+          children: genCypressAdvancedSidebar()
+        },
+        {
+          title: '其它',
+          collapsable: false,
+          children: []
+        }
+      ],
       '/html/': [
         {
           title: '基础',
@@ -250,6 +267,23 @@ function genInstallAdvancedSidebar(type = '') {
     return type + i
   })
 }
+// TODO: Cypress 对外路径配置
+function genCypressEssentialsSidebar(type = '') {
+  const mapArr = ['/Cypress/', '/Cypress/essentials/essentials.md']
+  return mapArr.map(i => {
+    return type + i
+  })
+}
+
+function genCypressAdvancedSidebar(type = '') {
+  const mapArr = ['/Cypress/advanced/advanced.md']
+  return mapArr.map(i => {
+    return type + i
+  })
+}
+
+
+
 // TODO: html 对外路径配置
 function genHtmlEssentialsSidebar(type = '') {
   const mapArr = ['/html/', '/html/essentials/essentials.md']

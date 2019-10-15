@@ -9,7 +9,12 @@
           title: 开发环境,
           details: 需要安装的开发环境及软件,
           link: /install/
-        }
+        },
+         {
+          title: Cypress,
+          details: Cypress 全自动化测试,
+          link: /Cypress/
+        },
       ]
     },
     {
