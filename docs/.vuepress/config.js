@@ -137,6 +137,11 @@ module.exports = {
           children: genGolangEssentialsSidebar()
         },
         {
+          title: '官方包',
+          collapsable: false,
+          children: genGolangPackageSidebar()
+        },
+        {
           title: '进阶',
           collapsable: false,
           children: genGolangAdvancedSidebar()
@@ -238,16 +243,22 @@ module.exports = {
       }
     },
     module: {
-      rules: [{
-        test: /\.scss$/,
-        use: [{
-            loader: "style-loader" // 将 JS 字符串生成为 style 节点
-        }, {
-            loader: "css-loader" // 将 CSS 转化成 CommonJS 模块
-        }, {
-            loader: "sass-loader" // 将 Sass 编译成 CSS
-        }]
-      }]
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [
+            {
+              loader: 'style-loader' // 将 JS 字符串生成为 style 节点
+            },
+            {
+              loader: 'css-loader' // 将 CSS 转化成 CommonJS 模块
+            },
+            {
+              loader: 'sass-loader' // 将 Sass 编译成 CSS
+            }
+          ]
+        }
+      ]
     }
   },
   ga: 'UA-109340118-1'
@@ -355,6 +366,15 @@ function genGolangEssentialsSidebar(type = '') {
   })
 }
 
+function genGolangPackageSidebar(type = '') {
+  const mapArr = [
+    '/Golang/package/os.md',
+    '/Golang/package/archive-tar.md'
+  ]
+  return mapArr.map(i => {
+    return type + i
+  })
+}
 function genGolangAdvancedSidebar(type = '') {
   const mapArr = [
     '/Golang/advanced/beego.md',
