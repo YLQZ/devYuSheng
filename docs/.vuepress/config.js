@@ -28,6 +28,23 @@ module.exports = {
     search: true,
     searchMaxSuggestions: 20,
     sidebar: {
+      '/Solution/': [
+        {
+          title: '基础',
+          collapsable: false,
+          children: genSolutionEssentialsSidebar()
+        },
+        {
+          title: '进阶',
+          collapsable: false,
+          children: genSolutionAdvancedSidebar()
+        },
+        {
+          title: '其它',
+          collapsable: false,
+          children: []
+        }
+      ],
       '/install/': [
         {
           title: '基础',
@@ -438,6 +455,20 @@ function genVSCodeEssentialsSidebar(type = '') {
 
 function genVSCodeAdvancedSidebar(type = '') {
   const mapArr = ['/VSCode/advanced/advanced.md']
+  return mapArr.map(i => {
+    return type + i
+  })
+}
+// TODO: Solution 对外路径配置
+function genSolutionEssentialsSidebar(type = '') {
+  const mapArr = ['/Solution/', '/Solution/Solutions/1.md']
+  return mapArr.map(i => {
+    return type + i
+  })
+}
+
+function genSolutionAdvancedSidebar(type = '') {
+  const mapArr = ['/Solution/Solutions/1.md']
   return mapArr.map(i => {
     return type + i
   })

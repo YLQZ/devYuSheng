@@ -3,6 +3,17 @@
   home: true,
   features: [
     {
+      typeTitle: 解决方案,
+      children: [
+        {
+          title: 前端解决方案,
+          details: 前端常见解决方案,
+          link: /Solution/
+        },
+         
+      ]
+    },
+    {
       typeTitle: 环境类,
       children: [
         {

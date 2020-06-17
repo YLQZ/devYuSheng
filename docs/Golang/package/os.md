@@ -89,23 +89,28 @@
       fmt.Println(err);
   }
 ``` 
+## os.Chtimes() 修改文件的访问时间和修改时间
 
-    //修改文件的访问时间和修改时间
-    os.Chtimes("./1.txt", time.Now().Add(time.Hour), time.Now().Add(time.Hour));
- 
-    //获取所有环境变量
-    fmt.Println(strings.Join(os.Environ(), "\r\n"));
- 
-    //把字符串中带${var}或$var替换成指定指符串
-    fmt.Println(os.Expand("${1} ${2} ${3}", func(k string) string {
-        mapp := map[string]string{
-            "1": "111",
-            "2": "222",
-            "3": "333",
-        };
-        return mapp[k];
-    }));
- 
+```
+  os.Chtimes("./1.txt", time.Now().Add(time.Hour), time.Now().Add(time.Hour));
+```
+
+## os.Environ() 获取所有环境变量
+```
+  fmt.Println(strings.Join(os.Environ(), "\r\n"));
+```
+## OS.Expand() 把字符串中带${var}或$var替换成指定指符串
+```
+fmt.Println(os.Expand("${1} ${2} ${3}", func(k string) string {
+  mapp := map[string]string{
+    "1": "111",
+    "2": "222",
+    "3": "333",
+  };
+  return mapp[k];
+}));
+```
+
     //创建目录
     os.Mkdir("abc", os.ModePerm);
  
