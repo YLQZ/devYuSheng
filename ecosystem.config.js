@@ -1,10 +1,5 @@
 module.exports = {
-  apps: [
-    {
-      name: 'app',
-      script: 'app.js'
-    }
-  ],
+
   deploy: {
     // "production" 是环境名称
     production: {
