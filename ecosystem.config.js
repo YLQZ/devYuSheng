@@ -3,7 +3,6 @@ module.exports = {
     // "production" 是环境名称
     production: {
       // SSH key 路径
-      key: `${process.env.HOME}/.ssh/id_rsa.pub`,
       user: 'git', // SSH 端口
       host: '39.96.24.186', // SSH 配置
       ref: 'origin/master', // GIT 仓库
