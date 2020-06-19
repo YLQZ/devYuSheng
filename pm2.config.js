@@ -9,7 +9,7 @@ module.exports = {
       ssh_options: 'StrictHostKeyChecking=no',
       'pre-setup': 'rm -rf /home/www/devyusheng',
       'pre-deploy-local': "echo 'deploy-local Done'",
-      'post-deploy': 'npm install',
+      'post-deploy': 'npm install && npm run build',
       // pm2 reload ecosystem.config.js --env production
       // 'pre-setup': ''
       env: {
