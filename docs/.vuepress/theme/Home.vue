@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import NavLink from '@default-theme/NavLink.vue'
+import NavLink from "@default-theme/NavLink.vue"
 export default {
   components: { NavLink },
   computed: {
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '~@default-theme/styles/config.styl';
+@import "~@default-theme/styles/config.styl";
 
 html, body {
   min-height: 100vh;
