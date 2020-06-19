@@ -7,13 +7,14 @@ module.exports = {
       repo: 'https://github.com/YLQZ/devYuSheng.git',
       path: '/home/www/devyusheng',
       ssh_options: 'StrictHostKeyChecking=no',
-      'pre-deploy-local': " echo 'npm install'",
-      // 'post-deploy': 'npm install && npm run build'
-      //  pm2 reload ecosystem.config.js --env production
+      'pre-deploy-local': "npm install && npm run build",
+      'post-deploy':
+        'npm install',
+      // pm2 reload ecosystem.config.js --env production
       // 'pre-setup': ''
-      // env: {
-      //   NODE_ENV: 'production'
-      // }
+      env: {
+        NODE_ENV: 'production'
+      }
     }
   }
 }
