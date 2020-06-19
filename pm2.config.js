@@ -12,9 +12,9 @@ module.exports = {
         'npm install && npm run build',
       //  pm2 reload ecosystem.config.js --env production
       // 'pre-setup': ''
-      env: {
-        NODE_ENV: 'production'
-      }
+      // env: {
+      //   NODE_ENV: 'production'
+      // }
     }
   }
 }
