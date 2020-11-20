@@ -10,6 +10,7 @@
     "dev": "yarn serve",
     "serve": "vuepress dev docs",
     "build": "vuepress build docs",
+    "deploy-gh": "npm run build && bash scripts/deploy-gh.sh",
     "postinstall": "patch-package"
   },
   "dependencies": {
