@@ -1,35 +1,23 @@
 {
-  "name": "devYuSheng",
-  "version": "2.0.0",
-  "description": "devYuSheng development language api search",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "precommit": "lint-staged",
-    "pro": "pm2 deploy pm2.config.js production",
-    "lint": "prettier --write 'docs/**/*.md'"
-  },
-  "lint-staged": {
-    "*.{js,json,css,md.vue}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  },
-  "author": "yusheng",
-  "license": "ISC",
   "devDependencies": {
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5",
-    "vuepress": "^1.5.2"
+    "@vuepress/plugin-pwa": "^1.5.4",
+    "node-sass": "^4.13.1",
+    "patch-package": "^6.2.2",
+    "sass-loader": "^8.0.2",
+    "vuepress": "^1.5.4"
+  },
+  "scripts": {
+    "dev": "yarn serve",
+    "serve": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "postinstall": "patch-package"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "webpack-dev-middleware": "^3.7.2"
+    "@docsearch/css": "^1.0.0-alpha.27",
+    "@docsearch/js": "^1.0.0-alpha.27",
+    "algoliasearch": "^4.4.0",
+    "axios": "^0.19.1",
+    "intersection-observer": "^0.11.0",
+    "showdown": "^1.9.1"
   }
 }
