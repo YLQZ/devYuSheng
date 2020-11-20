@@ -380,7 +380,11 @@ function genCssAdvancedSidebar(type = '') {
 }
 // TODO: JavaScript 对外路径配置
 function genJSEssentialsSidebar(type = '') {
-  const mapArr = ['/JavaScript/', '/JavaScript/essentials/essentials']
+  const mapArr = [
+    '/JavaScript/',
+    '/JavaScript/essentials/ES6',
+    '/JavaScript/essentials/Sorting',
+  ]
   return mapArr.map((i) => {
     return type + i
   })
