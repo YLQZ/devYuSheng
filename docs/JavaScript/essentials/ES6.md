@@ -163,6 +163,22 @@ class User {
 class VipUser extends User {
   constructor(name, pass, level) {
     super(name, pass)
+    this.level = level
   }
 }
 ```
+
+## JSON
+
+1. JSON 对象
+2. 简写
+
+```js
+JSON.stringify()
+JSON.parse()
+```
+
+## Promise
+
+异步: 操作之间没啥关系，同时进行多个操作
+同步: 同时只能做一件事
