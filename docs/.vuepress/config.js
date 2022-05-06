@@ -284,6 +284,24 @@ module.exports = {
           children: [],
         },
       ],
+      '/Interview':[
+        {
+          title: '基础',
+          collapsable: false,
+          children: genInterviewEssentialsSidebar(),
+        },
+        {
+          title: '进阶',
+          collapsable: false,
+          children: genInterviewAdvancedSidebar(),
+        },
+        {
+          title: '其它',
+          collapsable: false,
+          children: [],
+        },
+
+      ]
     },
     smoothScroll: false,
   },
@@ -508,6 +526,24 @@ function genSolutionEssentialsSidebar(type = '') {
 
 function genSolutionAdvancedSidebar(type = '') {
   const mapArr = ['/Solution/Solutions/1']
+  return mapArr.map((i) => {
+    return type + i
+  })
+}
+// TODO: Interview 对外路径配置
+function genInterviewEssentialsSidebar(type = '') {
+  const mapArr = [
+      '/Interview/',
+    '/Interview/essentials/essentials',
+    '/Interview/essentials/framework',
+  ]
+  return mapArr.map((i) => {
+    return type + i
+  })
+}
+
+function genInterviewAdvancedSidebar(type = '') {
+  const mapArr = ['/Interview/advanced/advanced']
   return mapArr.map((i) => {
     return type + i
   })

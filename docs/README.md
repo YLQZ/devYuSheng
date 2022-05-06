@@ -32,6 +32,7 @@
         typeTitle: 前端基础,
         children:
           [
+            { title: 面试题, details: 前端面试题, link: /Interview/ },
             { title: HTML, details: 超文本标记语言, link: /html/ },
             { title: CSS, details: 层叠样式表, link: /CSS/ },
             { title: JavaScript, details: 脚本语言, link: /JavaScript/ },
